@@ -1,15 +1,18 @@
 import { NavLink } from "react-router-dom";
-import { getUserName } from "../Services/StorageService";
+import { getRole, getUserName } from "../Services/StorageService";
 import "./../App.css";
 function Navbar() {
   const UserName = getUserName();
+  const Role = getRole();
   return (
     <nav>
-      <NavLink to="login"> Login</NavLink>
-      <NavLink to="">Create User</NavLink>{" "}
-      <NavLink to="">Workout Programs</NavLink>
+      <NavLink to="createUser">Create User</NavLink>
+      {" | "}
+      <NavLink to="workoutprograms">Workout Programs</NavLink>
+      {" | "}
+      <NavLink to="createworkoutprogram">Create WorkoutProgram</NavLink>
       <NavLink to="login" id="UserName">
-        {UserName}🪪
+        {UserName}: {Role}🪪
       </NavLink>
     </nav>
   );

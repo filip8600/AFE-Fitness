@@ -11,4 +11,17 @@ export function getUserName() {
   const decoded = jwt_Decode(token);
   return decoded.Name;
 }
+export function getRole() {
+  const token = getToken();
+  if (token == null || token.length < 1) return "";
+  const decoded = jwt_Decode(token);
+  return decoded.Role;
+}
+export function getUserId() {
+  const token = getToken();
+  if (token == null || token.length < 1) return -1;
+  const decoded = jwt_Decode(token);
+  return decoded.UserId;
+}
+
 //export {getToken,setToken}

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import login, { getWorkoutPrograms } from "../Services/LoginService";
+import { useState } from "react";
+import login from "../Services/LoginService";
 import { setToken } from "../Services/StorageService";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+export default function Login() {
   const initialState = { email: "", password: "" };
   const [state, setState] = useState(() => initialState);
   let navigate = useNavigate();
@@ -34,7 +34,7 @@ function Login() {
       <br></br>
       <label>password</label>
       <input
-        type="text"
+        type="password"
         name="password"
         value={state.password}
         onChange={handleChange}
@@ -45,4 +45,3 @@ function Login() {
   );
 }
 
-export default Login;

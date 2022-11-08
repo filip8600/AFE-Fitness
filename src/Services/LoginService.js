@@ -3,7 +3,8 @@ async function login(credentials) {
   const a = await axiosInstance.post("/Users/login", credentials);
   return a.data.jwt;
 }
-export async function getWorkoutPrograms() {
-  console.log(await axiosInstance.get("/WorkoutPrograms"));
+export async function createUser(credentials) {
+  return axiosInstance.post("/Users", credentials);
 }
+
 export default login;
