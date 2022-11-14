@@ -4,12 +4,16 @@ import { getUserId } from "../Services/StorageService";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateWorkoutProgram() {
+  const { search } = useLocation();
+  const parameters = new URLSearchParams(search);
+  let client = parameters.get("client");
+  if (!client) client = 0;
   const initialState = {
     name: "",
     description: "",
     exercises: [],
     personalTrainerId: getUserId(),
-    clientId: 0,
+    clientId: Number.parseInt(client),
   };
   const [state, setState] = useState(() => initialState);
   let navigate = useNavigate();
