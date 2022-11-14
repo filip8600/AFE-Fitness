@@ -35,24 +35,26 @@ function Navbar() {
             Group 15
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {Role !== "Client" && (
-              <Button
-                component={NavLink}
-                to="createUser"
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Create User
-              </Button>
-            )}
-            {Role !== "Manager" && (
-              <Button
-                component={NavLink}
-                to="workoutprograms"
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Workout Programs
-              </Button>
-            )}
+            {Role === "Manager" ||
+              (Role === "PersonalTrainer" && (
+                <Button
+                  component={NavLink}
+                  to="createUser"
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Create User
+                </Button>
+              ))}
+            {Role === "Client" ||
+              (Role === "PersonalTrainer" && (
+                <Button
+                  component={NavLink}
+                  to="workoutprograms"
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Workout Programs
+                </Button>
+              ))}
             {Role === "PersonalTrainer" && (
               <Button
                 component={NavLink}
