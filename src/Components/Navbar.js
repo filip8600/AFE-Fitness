@@ -62,6 +62,15 @@ function Navbar() {
                 Create WorkoutProgram
               </Button>
             )}
+            {Role == "PersonalTrainer" && (
+              <Button
+                component={NavLink}
+                to="users"
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Clients
+              </Button>
+            )}
           </Box>
           <Box>
             <Button
