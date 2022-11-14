@@ -2,6 +2,9 @@ import { useState } from "react";
 import { postWorkout } from "../Services/WorkoutProgramService";
 import { getUserId } from "../Services/StorageService";
 import { useNavigate } from "react-router-dom";
+import { TextField, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import Button from "@mui/material/Button";
 
 export default function CreateWorkoutProgram() {
   const initialState = {
@@ -24,39 +27,53 @@ export default function CreateWorkoutProgram() {
     event.preventDefault();
     const stateCopy = state;
     stateCopy.clientId = Number.parseInt(state.clientId);
-    console.log(stateCopy);
+    //console.log(stateCopy);
     postWorkout(state);
     navigate("/");
   }
   return (
     <>
-      <h1>Create WorkoutProgram:</h1>
+      <Typography
+        variant="h4"
+        sx={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
+      >
+        Create Workout Program
+      </Typography>
       <form onSubmit={handleSubmit} className="App">
-        <label>name</label>
-        <input
-          type="text"
-          name="name"
-          value={state.name}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>description</label>
-        <input
-          type="text"
-          name="description"
-          value={state.description}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>Client ID</label>
-        <input
-          type="text"
-          name="clientId"
-          value={state.clientId}
-          onChange={handleChange}
-        />
-        <br></br>
-        <input type="submit" value="Create" />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            marginX: "25%",
+            marginTop: "10px",
+          }}
+        >
+          <TextField
+            label="Name"
+            name="name"
+            value={state.name}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Description"
+            name="description"
+            value={state.description}
+            onChange={handleChange}
+          />
+
+          <TextField
+            type={"number"}
+            name="clientId"
+            label="Client ID"
+            value={state.clientId}
+            onChange={handleChange}
+          />
+          <Button variant="contained" type="submit">
+            Create
+          </Button>
+        </Box>
       </form>
     </>
   );
