@@ -6,6 +6,7 @@ import Workoutprograms from "./Components/WorkoutPrograms";
 import Workoutprogram from "./Components/WorkoutProgram";
 import CreateUser from "./Components/CreateUser";
 import CreateWorkoutProgram from "./Components/CreateWorkoutProgram";
+import UserList from "./Components/Users/UserList";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="createUser" element={<CreateUser />}></Route>
         <Route path="workoutprograms" element={<Workoutprograms />}></Route>
         <Route path="createworkoutprogram" element={<CreateWorkoutProgram />}></Route>
+        <Route path="users" element={<UserList />}></Route>
+
         <Route
           path="workoutprograms/:id"
           element={<Workoutprogram  />}
