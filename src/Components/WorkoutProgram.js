@@ -27,17 +27,15 @@ function Workoutprogram() {
     personalTrainerId: 0,
     clientId: 0,
   };
-  //const initialState = { email: "", password: "" };
+
   const [state, setState] = useState(() => initialState);
   useEffect(() => {
     const fetchData = async () => {
       const result = await getWorkout(id);
       setState(result);
-      console.log(result);
     };
     fetchData();
   }, [id]);
-  //const workouts=await getWorkouts();
 
   const role = getRole();
 
@@ -68,7 +66,7 @@ function Workoutprogram() {
         ))}
       </Box>
 
-      {role == "PersonalTrainer" && (
+      {role === "PersonalTrainer" && (
         <CreateExrercise workoutId={state.workoutProgramId}></CreateExrercise>
       )}
     </Box>

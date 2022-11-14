@@ -13,7 +13,7 @@ export default function CreateUser() {
     password: "",
     firstName: "",
     lastName: "",
-    AccountType: role == "Manager" ? "PersonalTrainer" : "Client",
+    AccountType: role === "Manager" ? "PersonalTrainer" : "Client",
   };
   const [state, setState] = useState(() => initialState);
   let navigate = useNavigate();
@@ -26,10 +26,9 @@ export default function CreateUser() {
   }
   async function handleSubmit(event) {
     event.preventDefault();
-    if (state.AccountType == "Client") {
+    if (state.AccountType === "Client") {
       let state2 = state;
       state2.personalTrainerId = Number.parseInt(getUserId());
-      //console.log(JSON.stringify(state2));
       createUser(state2);
     } else createUser(state);
 

@@ -31,7 +31,6 @@ export default function CreateWorkoutProgram() {
     event.preventDefault();
     const stateCopy = state;
     stateCopy.clientId = Number.parseInt(state.clientId);
-    //console.log(stateCopy);
     postWorkout(state);
     navigate("/");
   }

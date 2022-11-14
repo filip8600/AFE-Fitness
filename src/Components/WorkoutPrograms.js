@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   getWorkoutForUser,
   getWorkouts,
@@ -12,6 +12,7 @@ function Workoutprograms() {
   const parameters = new URLSearchParams(search);
   const client = parameters.get("client");
   const [state, setState] = useState(() => []);
+
   useEffect(() => {
     const fetchData = async () => {
       let result = null;
@@ -21,8 +22,7 @@ function Workoutprograms() {
       setState(result);
     };
     fetchData();
-  }, []);
-  //const workouts=await getWorkouts();
+  });
 
   return (
     <Box

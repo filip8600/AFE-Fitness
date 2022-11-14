@@ -10,7 +10,6 @@ function UserList() {
     const fetchData = async () => {
       const result = await getTrainerUsers();
       setState(result);
-      console.log(result);
     };
     fetchData();
   }, []);
