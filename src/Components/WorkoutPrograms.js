@@ -6,8 +6,14 @@ import {
 } from "../Services/WorkoutProgramService";
 import WorkoutCard from "./WorkoutCard";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Workoutprograms() {
+  let navigate = useNavigate();
+  async function CreateClick(id) {
+    navigate("/createworkoutprogram?client=" + id);
+  }
   const { search } = useLocation();
   const parameters = new URLSearchParams(search);
   const client = parameters.get("client");
@@ -24,6 +30,16 @@ function Workoutprograms() {
     fetchData();
   });
 
+  if (state.length < 1 && client) {
+    return (
+      <>
+        <h3>Sorry, could not find any workoutprogram for client {client}</h3>
+        <Button size="small" onClick={() => CreateClick(client)}>
+          Create new program
+        </Button>
+      </>
+    );
+  } else if (state.length < 1) return "Loading...";
   return (
     <Box
       sx={{
