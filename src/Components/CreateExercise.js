@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { postExercise } from "../Services/WorkoutProgramService";
+import { TextField, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/system";
 
 export default function CreateExrercise() {
   let { id } = useParams();
@@ -8,7 +11,7 @@ export default function CreateExrercise() {
   const initialState = {
     name: "",
     description: "",
-    sets: "",
+    sets: 0,
     repetitions: 0,
     time: "",
   };
@@ -25,54 +28,70 @@ export default function CreateExrercise() {
     const stateCopy = state;
     stateCopy.repetitions = Number.parseInt(state.repetitions);
     stateCopy.sets = Number.parseInt(state.sets);
-    console.log(state);
     postExercise(state, id);
   }
   return (
     <>
-      <h2>Create new exercise:</h2>
-      <form onSubmit={handleSubmit} className="App">
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          value={state.name}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>Description</label>
-        <input
-          type="text"
-          name="description"
-          value={state.description}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>Repetitions</label>
-        <input
-          type="number"
-          name="repetitions"
-          value={state.repetitions}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>Sets</label>
-        <input
-          type="text"
-          name="sets"
-          value={state.sets}
-          onChange={handleChange}
-        />
-        <br></br>
-        <label>Time</label>
-        <input
-          type="text"
-          name="time"
-          value={state.time}
-          onChange={handleChange}
-        />
-        <br></br>
-        <input type="submit" value="Create" />
+      <Typography
+        variant="h4"
+        sx={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
+      >
+        Create new exercise:
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            marginX: "25%",
+            marginTop: "10px",
+          }}
+        >
+          <TextField
+            label="Name"
+            type="text"
+            name="name"
+            value={state.name}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Description"
+            type="text"
+            name="description"
+            value={state.description}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Repetitions"
+            type="number"
+            name="repetitions"
+            value={state.repetitions}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Sets"
+            type="number"
+            name="sets"
+            value={state.sets}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Time"
+            type="text"
+            name="time"
+            value={state.time}
+            onChange={handleChange}
+          />
+
+          <Button variant="contained" type="submit">
+            Create
+          </Button>
+        </Box>
       </form>
     </>
   );
