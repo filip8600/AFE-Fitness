@@ -7,7 +7,7 @@ import { deleteUser } from "../../Services/UserService";
 import { useNavigate } from "react-router-dom";
 
 async function DeleteClick(id) {
-  let res = await deleteUser(id);
+  await deleteUser(id);
   alert("User deleted. Please Reload");
 }
 
@@ -26,7 +26,7 @@ export default function UserCard({ element }) {
           {element.accountType}
         </Typography>
         <Typography variant="h5" component="div">
-          {element.firstName} {element.lastName}{" "}
+          {element.firstName} {element.lastName}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {element.email}

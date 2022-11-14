@@ -35,7 +35,7 @@ function Navbar() {
             Group 15
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {Role != "Client" && (
+            {Role !== "Client" && (
               <Button
                 component={NavLink}
                 to="createUser"
@@ -44,7 +44,7 @@ function Navbar() {
                 Create User
               </Button>
             )}
-            {Role != "Manager" && (
+            {Role !== "Manager" && (
               <Button
                 component={NavLink}
                 to="workoutprograms"
@@ -53,7 +53,7 @@ function Navbar() {
                 Workout Programs
               </Button>
             )}
-            {Role == "PersonalTrainer" && (
+            {Role === "PersonalTrainer" && (
               <Button
                 component={NavLink}
                 to="createworkoutprogram"
@@ -62,7 +62,7 @@ function Navbar() {
                 Create WorkoutProgram
               </Button>
             )}
-            {Role == "PersonalTrainer" && (
+            {Role === "PersonalTrainer" && (
               <Button
                 component={NavLink}
                 to="users"
