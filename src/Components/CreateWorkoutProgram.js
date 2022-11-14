@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postWorkout } from "../Services/WorkoutProgramService";
 import { getUserId } from "../Services/StorageService";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TextField, Typography } from "@mui/material";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
