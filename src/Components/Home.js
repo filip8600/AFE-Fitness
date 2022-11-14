@@ -1,24 +1,9 @@
-import logo from "./../logo.svg";
-import "./../App.css";
-function Home() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Typography, Box } from "@mui/material";
 
-export default Home;
+export const Home = () => {
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center", marginTop: "16em" }}>
+      <Typography variant="h1">Welcome to Fitness</Typography>;
+    </Box>
+  );
+};

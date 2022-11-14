@@ -1,9 +1,10 @@
+import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRole } from "../Services/StorageService";
 import { getWorkout } from "../Services/WorkoutProgramService";
 import CreateExrercise from "./CreateExercise";
-import CreateWorkoutProgram from "./CreateWorkoutProgram";
+import { Box } from "@mui/material";
 
 function Workoutprogram() {
   let { id } = useParams();
@@ -41,22 +42,36 @@ function Workoutprogram() {
   const role = getRole();
 
   return (
-    <>
-      <h1>{state.name}</h1>
-      <p>{state.description}</p>
-      <article>
-        <hr />
+    <Box margin="20px">
+      <Typography variant="h3" borderBottom="1px solid gray">
+        {state.name}
+      </Typography>
+      <Typography fontWeight="bold">Description:</Typography>
+      <Typography fontSize="16px" borderBottom="1px solid gray">
+        {state.description}
+      </Typography>
+      <Box marginTop="20px">
         {state.exercises.map((ex) => (
-          <div key={ex.exerciseId}>
-            <p>{JSON.stringify(ex)}</p>
-            <hr />
-          </div>
+          <Box
+            sx={{ display: "flex", flexDirection: "column" }}
+            borderBottom="1px solid black"
+            margin="10px"
+          >
+            <Typography fontWeight="bold">{ex.name}</Typography>
+            <Typography>{ex.description}</Typography>
+            <Box sx={{ display: "flex", gap: "25px" }}>
+              <Typography>Sets: {ex.sets} </Typography>
+              <Typography>Reps: {ex.repetitions} </Typography>
+              <Typography>Time: {ex.time} </Typography>
+            </Box>
+          </Box>
         ))}
-        {role == "PersonalTrainer" && (
-          <CreateExrercise workoutId={state.workoutProgramId}></CreateExrercise>
-        )}
-      </article>
-    </>
+      </Box>
+
+      {role == "PersonalTrainer" && (
+        <CreateExrercise workoutId={state.workoutProgramId}></CreateExrercise>
+      )}
+    </Box>
   );
 }
 
