@@ -23,5 +23,3 @@ export function getUserId() {
   const decoded = jwt_Decode(token);
   return decoded.UserId;
 }
-
-//export {getToken,setToken}

@@ -15,11 +15,11 @@ function App() {
         <Route path="login" element={<Login />}></Route>
         <Route path="createUser" element={<CreateUser />}></Route>
         <Route path="workoutprograms" element={<Workoutprograms />}></Route>
-        <Route path="createworkoutprogram" element={<CreateWorkoutProgram />}></Route>
         <Route
-          path="workoutprograms/:id"
-          element={<Workoutprogram  />}
+          path="createworkoutprogram"
+          element={<CreateWorkoutProgram />}
         ></Route>
+        <Route path="workoutprograms/:id" element={<Workoutprogram />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </>

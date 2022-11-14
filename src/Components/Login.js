@@ -1,12 +1,10 @@
 import { useState } from "react";
 import login from "../Services/LoginService";
 import { setToken } from "../Services/StorageService";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const initialState = { email: "", password: "" };
   const [state, setState] = useState(() => initialState);
-  let navigate = useNavigate();
 
   function handleChange(event) {
     setState({
@@ -20,7 +18,7 @@ export default function Login() {
     const a = await login({ email: state.email, password: state.password });
     console.log(a);
     setToken(a);
-    navigate("/");
+    window.location.replace(window.location.origin);
   }
   return (
     <form onSubmit={handleSubmit} className="App">
@@ -44,4 +42,3 @@ export default function Login() {
     </form>
   );
 }
-
