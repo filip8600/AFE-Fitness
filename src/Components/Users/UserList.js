@@ -17,7 +17,7 @@ function UserList() {
   return (
     <Grid container spacing={4} paddingX="200px" paddingTop="30px">
       {state.map((element) => (
-        <Grid item xs={4}>
+        <Grid key={element.userId} item xs={4}>
           <UserCard element={element} sx={{ minWidth: 275 }}></UserCard>
         </Grid>
       ))}
