@@ -51,7 +51,10 @@ function Workoutprograms() {
       }}
     >
       {state.map((element) => (
-        <WorkoutCard element={element}></WorkoutCard>
+        <WorkoutCard
+          key={element.workoutProgramId}
+          element={element}
+        ></WorkoutCard>
       ))}
     </Box>
   );
