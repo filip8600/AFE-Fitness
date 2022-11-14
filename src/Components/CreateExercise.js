@@ -46,7 +46,7 @@ export default function CreateExrercise() {
           name="description"
           value={state.description}
           onChange={handleChange}
-        />{" "}
+        />
         <br></br>
         <label>Repetitions</label>
         <input
@@ -54,7 +54,7 @@ export default function CreateExrercise() {
           name="repetitions"
           value={state.repetitions}
           onChange={handleChange}
-        />{" "}
+        />
         <br></br>
         <label>Sets</label>
         <input
@@ -62,7 +62,7 @@ export default function CreateExrercise() {
           name="sets"
           value={state.sets}
           onChange={handleChange}
-        />{" "}
+        />
         <br></br>
         <label>Time</label>
         <input

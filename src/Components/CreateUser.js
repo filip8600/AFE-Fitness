@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { createUser } from "../Services/LoginService";
-import { getUserId } from "../Services/StorageService";
+import { getRole, getUserId } from "../Services/StorageService";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateUser() {
+  const role = getRole();
   const initialState = {
     email: "",
     password: "",
     firstName: "",
     lastName: "",
-    AccountType: "Client",
+    AccountType: role == "Manager" ? "PersonalTrainer" : "Client",
   };
   const [state, setState] = useState(() => initialState);
   let navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function CreateUser() {
   }
   async function handleSubmit(event) {
     event.preventDefault();
-    if (state.accountType === "Client") {
+    if (state.AccountType == "Client") {
       let state2 = state;
       state2.personalTrainerId = Number.parseInt(getUserId());
       console.log(JSON.stringify(state2));
@@ -50,13 +51,13 @@ export default function CreateUser() {
         onChange={handleChange}
       />
       <br></br>
-      <label>Type:</label>
+      {/* <label>Type:</label>
 
       <select name="accountType" onChange={handleChange}>
         <option value="Client">Client</option>
         <option value="PersonalTrainer">Trainer</option>
       </select>
-      <br></br>
+      <br></br> */}
       <label>Email</label>
 
       <input

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getRole } from "../Services/StorageService";
 import { getWorkout } from "../Services/WorkoutProgramService";
 import CreateExrercise from "./CreateExercise";
 import CreateWorkoutProgram from "./CreateWorkoutProgram";
@@ -37,6 +38,8 @@ function Workoutprogram() {
   }, [id]);
   //const workouts=await getWorkouts();
 
+  const role = getRole();
+
   return (
     <>
       <h1>{state.name}</h1>
@@ -49,7 +52,9 @@ function Workoutprogram() {
             <hr />
           </div>
         ))}
-        <CreateExrercise workoutId={state.workoutProgramId}></CreateExrercise>
+        {role == "PersonalTrainer" && (
+          <CreateExrercise workoutId={state.workoutProgramId}></CreateExrercise>
+        )}
       </article>
     </>
   );
