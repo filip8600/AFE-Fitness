@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getWorkouts } from "../Services/WorkoutProgramService";
+import { Link, useLocation, useParams } from "react-router-dom";
+import {
+  getWorkoutForUser,
+  getWorkouts,
+} from "../Services/WorkoutProgramService";
 
 function Workoutprograms() {
-  //const initialState = { email: "", password: "" };
+  const { search } = useLocation();
+  const parameters = new URLSearchParams(search);
+  const client = parameters.get("client");
   const [state, setState] = useState(() => []);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getWorkouts();
+      let result = null;
+      if (client && client >= 0 && client <= 10000) {
+        result = await getWorkoutForUser(client);
+      } else result = await getWorkouts();
       setState(result);
-      console.log(result);
     };
     fetchData();
   }, []);
