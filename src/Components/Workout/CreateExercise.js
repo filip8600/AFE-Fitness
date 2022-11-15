@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { postExercise } from "../Services/WorkoutProgramService";
+import { postExercise } from "../../Services/WorkoutProgramService";
 import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { createUser } from "../Services/LoginService";
-import { getRole, getUserId } from "../Services/StorageService";
+import { createUser } from "../../Services/LoginService";
+import { getRole, getUserId } from "../../Services/StorageService";
 import { useNavigate } from "react-router-dom";
 import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";

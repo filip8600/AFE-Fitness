@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { postWorkout } from "../Services/WorkoutProgramService";
-import { getUserId } from "../Services/StorageService";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TextField, Typography } from "@mui/material";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
+import { postWorkout } from "../../Services/WorkoutProgramService";
+import { getUserId } from "../../Services/StorageService";
 
 export default function CreateWorkoutProgram() {
   const { search } = useLocation();

@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import {
   getWorkoutForUser,
   getWorkouts,
-} from "../Services/WorkoutProgramService";
-import WorkoutCard from "./WorkoutCard";
+} from "../../Services/WorkoutProgramService";
+import WorkoutCard from "../Workout/WorkoutCard";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";

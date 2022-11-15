@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login";
-import Navbar from "./Components/Navbar";
-import Workoutprograms from "./Components/WorkoutPrograms";
-import Workoutprogram from "./Components/WorkoutProgram";
-import CreateUser from "./Components/CreateUser";
-import CreateWorkoutProgram from "./Components/CreateWorkoutProgram";
+import Navbar from "./Components/Navigation/Navbar";
+import Workoutprograms from "./Components/Workout/WorkoutPrograms";
+import Workoutprogram from "./Components/Workout/WorkoutProgram";
+import CreateUser from "./Components/Users/CreateUser";
+import CreateWorkoutProgram from "./Components/Workout/CreateWorkoutProgram";
 import UserList from "./Components/Users/UserList";
 import { getRole } from "./Services/StorageService";
-import { ProtectedRoute } from "./Components/ProtectedRoute";
+import { ProtectedRoute } from "./Components/Navigation/ProtectedRoute";
 import { Home } from "./Components/Home";
 
 function App() {

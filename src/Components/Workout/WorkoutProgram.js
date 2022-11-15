@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRole } from "../Services/StorageService";
-import { getWorkout } from "../Services/WorkoutProgramService";
+import { getRole } from "../../Services/StorageService";
+import { getWorkout } from "../../Services/WorkoutProgramService";
 import CreateExrercise from "./CreateExercise";
 import { Box } from "@mui/material";
 
